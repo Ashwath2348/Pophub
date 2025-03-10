@@ -2,8 +2,10 @@ body {
     font-family: Arial, sans-serif;
     margin: 0;
     padding: 0;
+    animation: fadeIn 1s ease-in-out;
 }
 
+/* Header */
 header {
     display: flex;
     justify-content: space-between;
@@ -11,12 +13,18 @@ header {
     background: #004080;
     padding: 15px 20px;
     color: white;
+    position: fixed;
+    width: 100%;
+    top: 0;
+    z-index: 1000;
+    animation: slideDown 0.8s ease-in-out;
 }
 
 .logo img {
     height: 50px;
 }
 
+/* Navigation */
 .nav-links {
     list-style: none;
     display: flex;
@@ -31,8 +39,14 @@ header {
     text-decoration: none;
     color: white;
     font-weight: bold;
+    transition: color 0.3s ease-in-out;
 }
 
+.nav-links a:hover {
+    color: #ffcc00;
+}
+
+/* Mobile Menu Toggle */
 .menu-toggle {
     display: none;
     background: none;
@@ -40,13 +54,22 @@ header {
     font-size: 24px;
     color: white;
     cursor: pointer;
+    transition: transform 0.3s ease-in-out;
 }
 
+.menu-toggle:hover {
+    transform: rotate(90deg);
+}
+
+/* Welcome Section */
 .welcome-section {
     background: url('background.jpg') no-repeat center center/cover;
     color: white;
     text-align: center;
     padding: 100px 20px;
+    margin-top: 70px;
+    opacity: 0;
+    animation: fadeIn 1.5s ease-in-out forwards;
 }
 
 .welcome-section .content {
@@ -54,8 +77,10 @@ header {
     display: inline-block;
     padding: 20px;
     border-radius: 5px;
+    animation: popUp 1.2s ease-in-out;
 }
 
+/* Buttons */
 .btn {
     background: orange;
     padding: 10px 20px;
@@ -64,16 +89,24 @@ header {
     border-radius: 5px;
     display: inline-block;
     margin-top: 10px;
+    transition: background 0.3s ease-in-out, transform 0.2s;
 }
 
+.btn:hover {
+    background: #e69500;
+    transform: scale(1.1);
+}
+
+/* Footer */
 footer {
     background: #002040;
     color: white;
     text-align: center;
     padding: 10px;
+    animation: fadeIn 2s ease-in-out;
 }
 
-/* Responsive Design */
+/* Responsive Navigation */
 @media (max-width: 768px) {
     .nav-links {
         display: none;
@@ -84,6 +117,7 @@ footer {
         left: 0;
         top: 60px;
         padding: 10px;
+        animation: slideDown 0.5s ease-in-out;
     }
 
     .nav-links.active {
@@ -92,5 +126,37 @@ footer {
 
     .menu-toggle {
         display: block;
+    }
+}
+
+/* Animations */
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
+}
+
+@keyframes slideDown {
+    from {
+        transform: translateY(-50px);
+        opacity: 0;
+    }
+    to {
+        transform: translateY(0);
+        opacity: 1;
+    }
+}
+
+@keyframes popUp {
+    from {
+        transform: scale(0.8);
+        opacity: 0;
+    }
+    to {
+        transform: scale(1);
+        opacity: 1;
     }
 }
