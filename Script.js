@@ -1,14 +1,35 @@
-// Animate Header on Scroll
-window.addEventListener("scroll", function() {
-    let header = document.querySelector("header");
-    if (window.scrollY > 50) {
-        header.style.transform = "translateY(-100px)";
-    } else {
-        header.style.transform = "translateY(0)";
+const express = require('express');
+const bodyParser = require('body-parser');
+const { exec } = require('child_process');
+const app = express();
+
+// Middleware to parse JSON requests
+app.use(bodyParser.json());
+
+// Endpoint to compile C code
+app.post('/compile', (req, res) => {
+    const { code } = req.body;
+
+    if (!code) {
+        return res.status(400).send({ error: 'No code provided' });
     }
+
+    // Save code to a temporary file
+    const fs = require('fs');
+    const filePath = './temp_code.c';
+
+    fs.writeFileSync(filePath, code, 'utf8');
+
+    // Compile the C code using gcc
+    exec(`gcc ${filePath} -o output && ./output`, (error, stdout, stderr) => {
+        if (error) {
+            return res.status(500).send({ error: stderr || error.message });
+        }
+        res.send({ result: stdout });
+    });
 });
 
-// Menu Toggle for Mobile
-document.querySelector(".menu-toggle").addEventListener("click", function() {
-    document.querySelector(".nav-links").classList.toggle("active");
+// Start the server
+app.listen(3000, () => {
+    console.log('Server is running on http://localhost:3000');
 });
