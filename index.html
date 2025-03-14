@@ -16,27 +16,28 @@
             justify-content: space-between;
             align-items: center;
             padding: 10px 20px;
-            background: #f8f9fa;
+            background-color: #f8f9fa;
         }
-        .top-bar .left {
+        .nav-buttons {
             display: flex;
-            align-items: center;
+            gap: 10px;
         }
-        .top-bar button {
-            padding: 5px 15px;
+        .nav-buttons button {
+            background: none;
             border: none;
-            background: #e0e0e0;
             cursor: pointer;
-            border-radius: 5px;
-            margin-right: 10px;
+            font-size: 18px;
         }
-        .top-bar button:hover {
-            background: #d6d6d6;
+        .nav-buttons button:hover {
+            opacity: 0.7;
         }
-        .top-bar .right a {
-            margin-left: 15px;
+        .top-links {
+            display: flex;
+            gap: 15px;
+        }
+        .top-links a {
             text-decoration: none;
-            color: #000;
+            color: black;
             font-size: 14px;
         }
         .container {
@@ -44,7 +45,7 @@
             flex-direction: column;
             align-items: center;
             justify-content: center;
-            height: 90vh;
+            height: 80vh;
         }
         .logo {
             font-size: 50px;
@@ -82,20 +83,21 @@
 </head>
 <body>
     <div class="top-bar">
-        <div class="left">
-            <button onclick="history.back()">Back</button>
+        <div class="nav-buttons">
+            <button>&larr;</button>
+            <button>&rarr;</button>
+            <button>&#x21bb;</button>
+        </div>
+        <div class="search-box">
             <input type="text" placeholder="Search Google or type a URL">
         </div>
-        <div class="right">
+        <div class="top-links">
             <a href="#">Gmail</a>
             <a href="#">Images</a>
         </div>
     </div>
     <div class="container">
         <div class="logo">G<span>o</span>o<span>g</span>l<span>e</span></div>
-        <div class="search-box">
-            <input type="text" placeholder="Search Google or type a URL">
-        </div>
         <div class="buttons">
             <button class="btn">Google Search</button>
             <button class="btn">I'm Feeling Lucky</button>
