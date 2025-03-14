@@ -52,7 +52,7 @@
             flex-direction: column;
             align-items: center;
             justify-content: center;
-            height: 80vh;
+            height: 70vh;
         }
         .logo {
             font-size: 50px;
@@ -95,6 +95,21 @@
         .btn:hover {
             background: #e0e0e0;
         }
+        .shortcut-container {
+            margin-top: 20px;
+        }
+        .add-shortcut {
+            padding: 10px 15px;
+            border: none;
+            background: #4285F4;
+            color: white;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background 0.2s ease-in-out;
+        }
+        .add-shortcut:hover {
+            background: #357ae8;
+        }
     </style>
 </head>
 <body>
@@ -120,6 +135,9 @@
         <div class="buttons">
             <button class="btn">Google Search</button>
             <button class="btn">I'm Feeling Lucky</button>
+        </div>
+        <div class="shortcut-container">
+            <button class="add-shortcut">+ Add Shortcut</button>
         </div>
     </div>
 </body>
