@@ -27,6 +27,7 @@
             border: none;
             cursor: pointer;
             font-size: 18px;
+            transition: opacity 0.2s ease-in-out;
         }
         .nav-buttons button:hover {
             opacity: 0.7;
@@ -39,6 +40,10 @@
             text-decoration: none;
             color: black;
             font-size: 14px;
+            transition: color 0.2s ease-in-out;
+        }
+        .top-links a:hover {
+            color: #4285F4;
         }
         .container {
             display: flex;
@@ -64,6 +69,10 @@
             border-radius: 20px;
             border: 1px solid #ccc;
             outline: none;
+            transition: box-shadow 0.2s ease-in-out;
+        }
+        input[type="text"]:focus {
+            box-shadow: 0 0 5px rgba(66, 133, 244, 0.5);
         }
         .buttons {
             margin-top: 20px;
@@ -75,6 +84,7 @@
             cursor: pointer;
             border-radius: 5px;
             margin: 5px;
+            transition: background 0.2s ease-in-out;
         }
         .btn:hover {
             background: #e0e0e0;
